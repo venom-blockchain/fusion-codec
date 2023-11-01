@@ -1,0 +1,16 @@
+{
+  "name": "@venom-blockchain/fusion-codec",
+  "version": "0.0.2",
+  "description": "Fusion codec for",
+  "files": [
+    "fusion_codec_bg.wasm",
+    "fusion_codec.js",
+    "fusion_codec.d.ts"
+  ],
+  "main": "fusion_codec.js",
+  "types": "fusion_codec.d.ts",
+  "scripts": {
+    "build": "wasm-pack build fusion-codec --release --target nodejs --out-dir ./../pkg && cp types.d.ts pkg && cp package.json pkg"
+  },
+  "license": "ISC"
+}

@@ -1,0 +1,36 @@
+[package]
+name = "fusion-codec"
+version = "0.1.0"
+authors = ["Ivan Kalinin <i.kalinin@dexpa.io>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ["-Oz", "--enable-mutable-globals", "--detect-features"]
+
+[dependencies]
+anyhow = "1.0"
+base64 = "0.13"
+case = "1.0.0"
+codegen = { git = "https://github.com/0xdeafbeef/codegen.git" }
+itertools = "0.10.1"
+js-sys = "0.3"
+once_cell = "1.8"
+serde_json = "1.0"
+getrandom = { version = "0.2", features = ["js"] }
+wasm-bindgen = { version = "0.2", features = ["serde-serialize"] }
+
+ton_abi = { git = "https://github.com/broxus/ton-labs-abi.git" }
+ton_types = { git = "https://github.com/broxus/ton-labs-types.git" }
+ton_block = { git = "https://github.com/broxus/ton-labs-block.git", features = ["venom"] }
+ton_block_json = { git = "https://github.com/broxus/ton-labs-block-json.git", features = ["venom"] }
+
+fusion-abi-parser = { path = "../fusion-abi-parser" }
+fusion-shared = { path = "../fusion-shared" }
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3"
+js-sys = "0.3"
+wasm-bindgen-futures = "0.4"
